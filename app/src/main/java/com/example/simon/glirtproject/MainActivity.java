@@ -1,5 +1,7 @@
 package com.example.simon.glirtproject;
 
+import android.content.Intent;
+import android.icu.text.DecimalFormat;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,25 +14,28 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    float value1, value2, value3, value4, value5,value6,value7,value8,value9,value10,value11,value12, total;
+    float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
+    RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
+            radioGroup8, radioGroup9, radioGroup10, radioGroup11, radioGroup12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RadioGroup radioGroup1 = (RadioGroup) findViewById(R.id.radiogroup1);
-        RadioGroup radioGroup2 = (RadioGroup) findViewById(R.id.radiogroup2);
-        RadioGroup radioGroup3 = (RadioGroup) findViewById(R.id.radiogroup3);
-        RadioGroup radioGroup4 = (RadioGroup) findViewById(R.id.radiogroup4);
-        RadioGroup radioGroup5 = (RadioGroup) findViewById(R.id.radiogroup5);
-        RadioGroup radioGroup6 = (RadioGroup) findViewById(R.id.radiogroup6);
-        RadioGroup radioGroup7 = (RadioGroup) findViewById(R.id.radiogroup7);
-        RadioGroup radioGroup8 = (RadioGroup) findViewById(R.id.radiogroup8);
-        RadioGroup radioGroup9 = (RadioGroup) findViewById(R.id.radiogroup9);
-        RadioGroup radioGroup10 = (RadioGroup) findViewById(R.id.radiogroup10);
-        RadioGroup radioGroup11 = (RadioGroup) findViewById(R.id.radiogroup11);
-        RadioGroup radioGroup12 = (RadioGroup) findViewById(R.id.radiogroup12);
+        radioGroup1 = (RadioGroup) findViewById(R.id.radiogroup1);
+        radioGroup2 = (RadioGroup) findViewById(R.id.radiogroup2);
+        radioGroup3 = (RadioGroup) findViewById(R.id.radiogroup3);
+        radioGroup4 = (RadioGroup) findViewById(R.id.radiogroup4);
+        radioGroup5 = (RadioGroup) findViewById(R.id.radiogroup5);
+        radioGroup6 = (RadioGroup) findViewById(R.id.radiogroup6);
+        radioGroup7 = (RadioGroup) findViewById(R.id.radiogroup7);
+        radioGroup8 = (RadioGroup) findViewById(R.id.radiogroup8);
+        radioGroup9 = (RadioGroup) findViewById(R.id.radiogroup9);
+        radioGroup10 = (RadioGroup) findViewById(R.id.radiogroup10);
+        radioGroup11 = (RadioGroup) findViewById(R.id.radiogroup11);
+        radioGroup12 = (RadioGroup) findViewById(R.id.radiogroup12);
+
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         value4 = 4;
                         break;
                     case R.id.radio34:
-                        value4= 3;
+                        value4 = 3;
                         break;
                     case R.id.radio44:
                         value4 = 2;
@@ -303,10 +308,28 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float total = (value1 + value2+value3+value4+value5+value6+value7+value8+value9+value10+value11+value12)/12;
-                Toast.makeText(MainActivity.this, "your grit is" + total, Toast.LENGTH_SHORT).show();
-                Snackbar.make(view, "Replace with your own action" + total, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (radioGroup1.getCheckedRadioButtonId() == -1 || radioGroup2.getCheckedRadioButtonId() == -1 ||
+                        radioGroup3.getCheckedRadioButtonId() == -1 || radioGroup4.getCheckedRadioButtonId() == -1 ||
+                        radioGroup5.getCheckedRadioButtonId() == -1 || radioGroup6.getCheckedRadioButtonId() == -1 ||
+                        radioGroup7.getCheckedRadioButtonId() == -1 || radioGroup8.getCheckedRadioButtonId() == -1 ||
+                        radioGroup9.getCheckedRadioButtonId() == -1 || radioGroup10.getCheckedRadioButtonId() == -1 ||
+                        radioGroup11.getCheckedRadioButtonId() == -1 || radioGroup12.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(MainActivity.this, "Check atleast one", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    total = (value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9 + value10 + value11 + value12) / 12;
+                    DecimalFormat formater = new DecimalFormat("#.##");
+                    String twoDigitNo = formater.format(total);
+
+                    Intent intent = new Intent(getApplicationContext(),REsult.class);
+                    intent.putExtra("Gritvalue",twoDigitNo);
+                    startActivity(intent);
+
+                    Toast.makeText(MainActivity.this, "your grit is" + twoDigitNo, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Replace with your own action" + total, Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+
             }
         });
     }
