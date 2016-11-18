@@ -139,7 +139,7 @@
             android:id="@+id/titles4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title1" />
+            android:text="@string/title4" />
 
         <RadioGroup
             android:id="@+id/radiogroup4"

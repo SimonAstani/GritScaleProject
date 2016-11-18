@@ -2,6 +2,7 @@ package com.example.simon.glirtproject;
 
 import android.content.Intent;
 import android.icu.text.DecimalFormat;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
@@ -314,7 +314,9 @@ public class MainActivity extends AppCompatActivity {
                         radioGroup7.getCheckedRadioButtonId() == -1 || radioGroup8.getCheckedRadioButtonId() == -1 ||
                         radioGroup9.getCheckedRadioButtonId() == -1 || radioGroup10.getCheckedRadioButtonId() == -1 ||
                         radioGroup11.getCheckedRadioButtonId() == -1 || radioGroup12.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(MainActivity.this, "Check atleast one", Toast.LENGTH_SHORT).show();
+
+                    Snackbar.make(view, "Please check atleast one answer from each Before Submitting", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
 
                 } else {
                     total = (value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9 + value10 + value11 + value12) / 12;
@@ -325,9 +327,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("Gritvalue",twoDigitNo);
                     startActivity(intent);
 
-                    Toast.makeText(MainActivity.this, "your grit is" + twoDigitNo, Toast.LENGTH_SHORT).show();
-                    Snackbar.make(view, "Replace with your own action" + total, Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+
                 }
 
             }
@@ -350,7 +350,19 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            //do something
             return true;
+        } if (id == R.id.about) {
+            String myweb = "http://www.sumanastani.com.np";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(myweb));
+            startActivity(i);
+        }if (id == R.id.share) {
+             Intent share = new Intent(Intent.ACTION_SEND);
+            String message = getResources().getString(R.string.shareResult);
+            share.putExtra(android.content.Intent.EXTRA_TEXT,message);
+            share.setType("text/plain");
+            startActivity(Intent.createChooser(share,"share in social media"));
         }
 
         return super.onOptionsItemSelected(item);

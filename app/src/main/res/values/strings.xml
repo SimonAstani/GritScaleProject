@@ -9,17 +9,20 @@
     <string name="radio4">Not much like me </string>
     <string name="radio5">Not like me at all</string>
 
-    <string name="title1">1. have overcome setbacks to conquer an important challenge</string>
-    <string name="title2">2.  New ideas and projects sometimes distract me from previous ones. </string>
-    <string name="title3">3. My interests change from year to year.* </string>
-    <string name="title4">4.  Setbacks don’t discourage me. </string>
-    <string name="title5">5.  I have been obsessed with a certain idea or project for a short time but later lost interest.* </string>
-    <string name="title6">6.  I am a hard worker. </string>
-    <string name="title7">7.  I often set a goal but later choose to pursue a different one.* </string>
-    <string name="title8"> 8.  I have difficulty maintaining my focus on projects that take more than a few months to complete.</string>
-    <string name="title9">9.  I finish whatever I begin.</string>
-    <string name="title10"> 10.  I have achieved a goal that took years of work. </string>
-    <string name="title11">11. I become interested in new pursuits every few months.*</string>
-    <string name="title12"> 12. I am diligent. </string>
+    <string name="title1">1.I have overcome setbacks to conquer an important challenge</string>
+    <string name="title2">2. New ideas and projects sometimes distract me from previous ones. </string>
+    <string name="title3">3.My interests change from year to year.* </string>
+    <string name="title4">4. Setbacks don’t discourage me. </string>
+    <string name="title5">5. I have been obsessed with a certain idea or project for a short time but later lost interest.* </string>
+    <string name="title6">6. I am a hard worker. </string>
+    <string name="title7">7. I often set a goal but later choose to pursue a different one.* </string>
+    <string name="title8">8. I have difficulty maintaining my focus on projects that take more than a few months to complete.</string>
+    <string name="title9">9. I finish whatever I begin.</string>
+    <string name="title10">10.I have achieved a goal that took years of work. </string>
+    <string name="title11">11.I become interested in new pursuits every few months.*</string>
+    <string name="title12">12.I am diligent. </string>
+
+    <string name="shareResult"> "HI! I got my grit score from this app"It define my passion and perseverance for long-term goals.
+        Share among your friends. Download it at https://www.sumanastani.com.np/blog and know yout Grit as well</string>
 
 </resources>
