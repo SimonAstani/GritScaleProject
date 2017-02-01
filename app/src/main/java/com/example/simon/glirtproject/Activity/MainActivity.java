@@ -1,4 +1,4 @@
-package com.example.simon.glirtproject;
+package com.example.simon.glirtproject.Activity;
 
 import android.content.Intent;
 import android.icu.text.DecimalFormat;
@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,29 +15,68 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.example.simon.glirtproject.Adapter.TabpagerAdapter;
+import com.example.simon.glirtproject.R;
+import com.example.simon.glirtproject.fragments.gritFragment;
+
 public class MainActivity extends AppCompatActivity {
-    float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
-    RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
+    private float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
+    private RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
             radioGroup8, radioGroup9, radioGroup10, radioGroup11, radioGroup12;
+    FloatingActionButton fab;
+    private ViewPager mviewPager;
+    private TabLayout mTabLayout;
+    //tabpagerAdapter is a custom adapter class that provides fragment required for view pager
+    private TabpagerAdapter tabPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        radioGroup1 = (RadioGroup) findViewById(R.id.radiogroup1);
-        radioGroup2 = (RadioGroup) findViewById(R.id.radiogroup2);
-        radioGroup3 = (RadioGroup) findViewById(R.id.radiogroup3);
-        radioGroup4 = (RadioGroup) findViewById(R.id.radiogroup4);
-        radioGroup5 = (RadioGroup) findViewById(R.id.radiogroup5);
-        radioGroup6 = (RadioGroup) findViewById(R.id.radiogroup6);
-        radioGroup7 = (RadioGroup) findViewById(R.id.radiogroup7);
-        radioGroup8 = (RadioGroup) findViewById(R.id.radiogroup8);
-        radioGroup9 = (RadioGroup) findViewById(R.id.radiogroup9);
-        radioGroup10 = (RadioGroup) findViewById(R.id.radiogroup10);
-        radioGroup11 = (RadioGroup) findViewById(R.id.radiogroup11);
-        radioGroup12 = (RadioGroup) findViewById(R.id.radiogroup12);
+        radioGroup1 = (RadioGroup)MainActivity.this.findViewById(R.id.radiogroup1);
+        radioGroup2 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup2);
+        radioGroup3 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup3);
+        radioGroup4 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup4);
+        radioGroup5 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup5);
+        radioGroup6 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup6);
+        radioGroup7 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup7);
+        radioGroup8 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup8);
+        radioGroup9 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup9);
+        radioGroup10 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup10);
+        radioGroup11 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup11);
+        radioGroup12 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup12);
 
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        radiobuttonlogic();
+        floatingbuttonlogic();
+
+
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        mviewPager = (ViewPager) findViewById(R.id.container);
+        setupViewPager(mviewPager);
+
+        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        mTabLayout.setupWithViewPager(mviewPager);
+
+
+    }
+
+    private void setupViewPager(ViewPager mviewPager) {
+        tabPagerAdapter = new TabpagerAdapter(getSupportFragmentManager());
+        tabPagerAdapter.addFragment(new gritFragment(),"GritScale");
+        tabPagerAdapter.addFragment(new gritFragment(),"Result");
+        tabPagerAdapter.addFragment(new gritFragment(),"AboutGrit");
+        mviewPager.setAdapter(tabPagerAdapter);
+
+    }
+
+    /*This method contains logic of radio button and value assigned to it.*/
+    private void radiobuttonlogic(){
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -300,11 +341,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*This method contains logic of floation action button where restult are displayed accoring to value obtained*/
+    private void floatingbuttonlogic(){
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -332,6 +372,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override

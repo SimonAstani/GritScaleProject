@@ -24,5 +24,7 @@
 
     <string name="shareResult"> "HI! I got my grit score from this app"It define my passion and perseverance for long-term goals.
         Share among your friends. Download it at https://www.sumanastani.com.np/blog and know yout Grit as well</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

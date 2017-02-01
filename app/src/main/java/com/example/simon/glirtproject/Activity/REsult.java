@@ -1,9 +1,11 @@
-package com.example.simon.glirtproject;
+package com.example.simon.glirtproject.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import com.example.simon.glirtproject.R;
 
 public class REsult extends AppCompatActivity {
     TextView textView1,textView2;
