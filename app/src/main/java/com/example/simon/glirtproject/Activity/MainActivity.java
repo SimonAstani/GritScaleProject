@@ -10,9 +10,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 
 import com.example.simon.glirtproject.Adapter.TabpagerAdapter;
@@ -34,24 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        radioGroup1 = (RadioGroup)MainActivity.this.findViewById(R.id.radiogroup1);
-        radioGroup2 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup2);
-        radioGroup3 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup3);
-        radioGroup4 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup4);
-        radioGroup5 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup5);
-        radioGroup6 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup6);
-        radioGroup7 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup7);
-        radioGroup8 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup8);
-        radioGroup9 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup9);
-        radioGroup10 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup10);
-        radioGroup11 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup11);
-        radioGroup12 = (RadioGroup) MainActivity.this.findViewById(R.id.radiogroup12);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         radiobuttonlogic();
         floatingbuttonlogic();
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -68,15 +57,33 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager mviewPager) {
         tabPagerAdapter = new TabpagerAdapter(getSupportFragmentManager());
-        tabPagerAdapter.addFragment(new gritFragment(),"GritScale");
-        tabPagerAdapter.addFragment(new gritFragment(),"Result");
-        tabPagerAdapter.addFragment(new gritFragment(),"AboutGrit");
+        tabPagerAdapter.addFragment(new gritFragment(), "GritScale");
+        tabPagerAdapter.addFragment(new gritFragment(), "Result");
+        tabPagerAdapter.addFragment(new gritFragment(), "AboutGrit");
         mviewPager.setAdapter(tabPagerAdapter);
 
     }
 
+
     /*This method contains logic of radio button and value assigned to it.*/
-    private void radiobuttonlogic(){
+    public void radiobuttonlogic() {
+        LayoutInflater layoutInflater= (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = layoutInflater.inflate(R.layout.single_row, null);
+
+        radioGroup1 = (RadioGroup) popupView.findViewById(R.id.radiogroup1);
+        radioGroup2 = (RadioGroup) popupView.findViewById(R.id.radiogroup2);
+        radioGroup3 = (RadioGroup) popupView.findViewById(R.id.radiogroup3);
+        radioGroup4 = (RadioGroup) popupView.findViewById(R.id.radiogroup4);
+        radioGroup5 = (RadioGroup) popupView.findViewById(R.id.radiogroup5);
+        radioGroup6 = (RadioGroup) popupView.findViewById(R.id.radiogroup6);
+        radioGroup7 = (RadioGroup) popupView.findViewById(R.id.radiogroup7);
+        radioGroup8 = (RadioGroup) popupView.findViewById(R.id.radiogroup8);
+        radioGroup9 = (RadioGroup) popupView.findViewById(R.id.radiogroup9);
+        radioGroup10 = (RadioGroup) popupView.findViewById(R.id.radiogroup10);
+        radioGroup11 = (RadioGroup) popupView.findViewById(R.id.radiogroup11);
+        radioGroup12 = (RadioGroup) popupView.findViewById(R.id.radiogroup12);
+
+
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -343,8 +350,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-        /*This method contains logic of floation action button where restult are displayed accoring to value obtained*/
-    private void floatingbuttonlogic(){
+    /*This method contains logic of floation action button where restult are displayed accoring to value obtained*/
+    private void floatingbuttonlogic() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -363,8 +370,8 @@ public class MainActivity extends AppCompatActivity {
                     DecimalFormat formater = new DecimalFormat("#.##");
                     String twoDigitNo = formater.format(total);
 
-                    Intent intent = new Intent(getApplicationContext(),REsult.class);
-                    intent.putExtra("Gritvalue",twoDigitNo);
+                    Intent intent = new Intent(getApplicationContext(), REsult.class);
+                    intent.putExtra("Gritvalue", twoDigitNo);
                     startActivity(intent);
 
 
@@ -393,17 +400,19 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             //do something
             return true;
-        } if (id == R.id.about) {
+        }
+        if (id == R.id.about) {
             String myweb = "http://www.sumanastani.com.np";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(myweb));
             startActivity(i);
-        }if (id == R.id.share) {
-             Intent share = new Intent(Intent.ACTION_SEND);
+        }
+        if (id == R.id.share) {
+            Intent share = new Intent(Intent.ACTION_SEND);
             String message = getResources().getString(R.string.shareResult);
-            share.putExtra(android.content.Intent.EXTRA_TEXT,message);
+            share.putExtra(android.content.Intent.EXTRA_TEXT, message);
             share.setType("text/plain");
-            startActivity(Intent.createChooser(share,"share in social media"));
+            startActivity(Intent.createChooser(share, "share in social media"));
         }
 
         return super.onOptionsItemSelected(item);
