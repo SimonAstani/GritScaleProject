@@ -35,20 +35,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //viewpager defines swipe behaviour of fragment
         mviewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mviewPager);
 
+        //tablayout changes the page based on tab clicked
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mviewPager);
 
 
     }
 
+    //this method implement methods from tabpagerAdpater that is used to add fragment and title
     private void setupViewPager(ViewPager mviewPager) {
         tabPagerAdapter = new TabpagerAdapter(getSupportFragmentManager());
         tabPagerAdapter.addFragment(new gritFragment(), "GritScale");
@@ -57,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
         mviewPager.setAdapter(tabPagerAdapter);
 
     }
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

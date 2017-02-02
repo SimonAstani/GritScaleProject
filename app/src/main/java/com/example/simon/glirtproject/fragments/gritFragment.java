@@ -25,10 +25,11 @@ import static com.example.simon.glirtproject.R.id.fab;
 public class gritFragment extends Fragment {
 
 
-    public float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
-    public RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
+    private float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
+    private RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
             radioGroup8, radioGroup9, radioGroup10, radioGroup11, radioGroup12;
-    FloatingActionButton fab;
+    private FloatingActionButton fab;
+
     public gritFragment() {
     }
 
@@ -66,7 +67,7 @@ public class gritFragment extends Fragment {
     }
 
     /*This method contains logic of radio button and value assigned to it.*/
-    private void radiobuttonlogic(){
+    private void radiobuttonlogic() {
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -334,7 +335,7 @@ public class gritFragment extends Fragment {
     }
 
     /*This method contains logic of floation action button where restult are displayed accoring to value obtained*/
-    private void fabbuttonLogic(){
+    private void fabbuttonLogic() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -364,8 +365,5 @@ public class gritFragment extends Fragment {
         });
 
     }
-
-
-
 }
 
