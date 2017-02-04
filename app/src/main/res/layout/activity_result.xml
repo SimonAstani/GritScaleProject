@@ -21,7 +21,7 @@
         android:text="Your Grit Score" />
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/resultTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView"
@@ -32,7 +32,7 @@
         android:textSize="36sp" />
 
     <TextView
-        android:id="@+id/survey"
+        android:id="@+id/surveyTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -42,10 +42,10 @@
         android:hint="you Scored higher than 50 % of neplali adult" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/push"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="More About Grit" />
+        android:text="Push to cloud" />
 
     <TextView
         android:layout_width="match_parent"
@@ -55,4 +55,20 @@
         android:layout_marginTop="26dp"
         android:gravity="center"
         android:text="Share Your Score With Friends" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputName"
+        android:hint="UserName"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="36dp"
+        android:layout_marginTop="26dp"
+        android:gravity="center"
+        android:id="@+id/txt_users"
+        android:hint="Result from firebase" />
 </LinearLayout>
