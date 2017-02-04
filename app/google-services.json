@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "719778589536",
+    "firebase_url": "https://gritscale.firebaseio.com",
+    "project_id": "gritscale",
+    "storage_bucket": "gritscale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719778589536:android:43515999b617a320",
+        "android_client_info": {
+          "package_name": "com.example.simon.glirtproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719778589536-es7vl68k6um4phhu0kqe5r76h331lnja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFiBItK1tnsv3afTlqNZyM3uzt0Bx7qx0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719778589536-es7vl68k6um4phhu0kqe5r76h331lnja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -339,7 +339,7 @@ public class gritFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (radioGroup1.getCheckedRadioButtonId() == -1 || radioGroup2.getCheckedRadioButtonId() == -1 ||
+              /*  if (radioGroup1.getCheckedRadioButtonId() == -1 || radioGroup2.getCheckedRadioButtonId() == -1 ||
                         radioGroup3.getCheckedRadioButtonId() == -1 || radioGroup4.getCheckedRadioButtonId() == -1 ||
                         radioGroup5.getCheckedRadioButtonId() == -1 || radioGroup6.getCheckedRadioButtonId() == -1 ||
                         radioGroup7.getCheckedRadioButtonId() == -1 || radioGroup8.getCheckedRadioButtonId() == -1 ||
@@ -349,7 +349,7 @@ public class gritFragment extends Fragment {
                     Snackbar.make(view, "Please check atleast one answer from each Before Submitting", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
-                } else {
+                } else {*/
                     total = (value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9 + value10 + value11 + value12) / 12;
                     DecimalFormat formater = new DecimalFormat("#.##");
                     String twoDigitNo = formater.format(total);
@@ -359,7 +359,7 @@ public class gritFragment extends Fragment {
                     startActivity(intent);
 
 
-                }
+//                }
 
             }
         });

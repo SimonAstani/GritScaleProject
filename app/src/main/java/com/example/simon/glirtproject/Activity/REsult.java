@@ -17,13 +17,13 @@ public class REsult extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         //getting value from another activiy using intent putExtra method
-        textView1 = (TextView) findViewById(R.id.result);
+        textView1 = (TextView) findViewById(R.id.resultTv);
         Intent intent = getIntent();
         String values = intent.getStringExtra("Gritvalue");
         textView1.setText(values);
 
         //creating textview from java and updating it using above grit values...
-        textView2 = (TextView) findViewById(R.id.survey);
+        textView2 = (TextView) findViewById(R.id.surveyTv);
 
         //seperating settext string into two values so i can make % value bold
 
