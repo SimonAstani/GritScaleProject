@@ -26,9 +26,7 @@ public class REsult extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.surveyTv);
 
         //seperating settext string into two values so i can make % value bold
-
-
-         valuedouble = Double.valueOf(values);
+             valuedouble = Double.valueOf(values);
         if (0 <= valuedouble && valuedouble <= 1.5) {
             textView2.setText("You Scored higher than about 10 % of Nepali Adult");
 

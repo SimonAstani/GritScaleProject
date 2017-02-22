@@ -28,7 +28,6 @@
         android:layout_below="@+id/textView"
         android:layout_gravity="center"
         android:background="@android:color/holo_red_light"
-        android:hint="3.5"
         android:textSize="36sp" />
 
     <TextView
@@ -39,7 +38,7 @@
         android:layout_marginBottom="36dp"
         android:layout_marginTop="26dp"
         android:gravity="center"
-        android:hint="you Scored higher than 50 % of neplali adult" />
+        android:hint="" />
 
     <Button
         android:id="@+id/push"

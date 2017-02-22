@@ -1,34 +1,32 @@
 package com.example.simon.glirtproject.fragments;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.icu.text.DecimalFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
-import com.example.simon.glirtproject.Activity.REsult;
+import com.example.simon.glirtproject.Interface.ResultPass;
 import com.example.simon.glirtproject.R;
-
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-import static com.example.simon.glirtproject.R.id.fab;
 
 /**
  * Created by Simon on 2/1/2017.
  */
 
-public class gritFragment extends Fragment {
-
+public class gritFragment extends Fragment implements ResultPass {
 
     private float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
     private RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
             radioGroup8, radioGroup9, radioGroup10, radioGroup11, radioGroup12;
     private FloatingActionButton fab;
+    ViewPager viewPager;
+    ResultPass mResultPass;
 
     public gritFragment() {
     }
@@ -39,6 +37,10 @@ public class gritFragment extends Fragment {
 
     }
 
+ /*   parametere of onCreateView
+    * @LayoutInflater == inflate xml layout and create view instance*
+    * @ViewGroup == in which view of the parent is inserted,,
+    * @Bundle == inwhich fragment can save data/*/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,10 +60,11 @@ public class gritFragment extends Fragment {
         radioGroup11 = (RadioGroup) popupView.findViewById(R.id.radiogroup11);
         radioGroup12 = (RadioGroup) popupView.findViewById(R.id.radiogroup12);
 
+        viewPager = (ViewPager) getActivity().findViewById(R.id.container);
+
         fab = (FloatingActionButton) popupView.findViewById(R.id.fab);
 
         radiobuttonlogic();
-        fabbuttonLogic();
 
         return popupView;
     }
@@ -335,7 +338,10 @@ public class gritFragment extends Fragment {
     }
 
     /*This method contains logic of floation action button where restult are displayed accoring to value obtained*/
-    private void fabbuttonLogic() {
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -350,20 +356,48 @@ public class gritFragment extends Fragment {
                             .setAction("Action", null).show();
 
                 } else {*/
-                    total = (value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9 + value10 + value11 + value12) / 12;
-                    DecimalFormat formater = new DecimalFormat("#.##");
-                    String twoDigitNo = formater.format(total);
+                total = (value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9 + value10 + value11 + value12) / 12;
+                DecimalFormat formater = new DecimalFormat("#.##");
+                String twoDigitNo = formater.format(total);
 
-                    Intent intent = new Intent(getContext(), REsult.class);
+
+
+                viewPager.setCurrentItem(1);
+
+                //the twodigit string data gets update in string data inside the result interfae and
+                //the interface directly communicate with the main activity.
+                mResultPass.onFabClicked(twoDigitNo);
+
+
+
+
+                  /*  Intent intent = new Intent(getContext(), REsult.class);
                     intent.putExtra("Gritvalue", twoDigitNo);
-                    startActivity(intent);
+                    startActivity(intent);*/
 
 
 //                }
 
             }
         });
+    }
 
+
+
+    @Override
+    public void onFabClicked(String data) {
+
+
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            this.mResultPass = (ResultPass) activity;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
     }
 }
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/globeGritScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GritScore" />
+
+    <TextView
+        android:id="@+id/globeGritName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gritusername" />
+
+    <TextView
+        android:id="@+id/globeGritSurvey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Globe grit Survey" />
+
+    <TextView
+        android:id="@+id/globeupdateScire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="globeUpdateScore" />
+</LinearLayout>
