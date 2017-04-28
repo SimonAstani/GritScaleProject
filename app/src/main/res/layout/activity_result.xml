@@ -30,6 +30,12 @@
         android:background="@android:color/holo_red_light"
         android:textSize="36sp" />
 
+    <ProgressBar
+        android:id="@+id/progressBarResult"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/surveyTv"
         android:layout_width="match_parent"

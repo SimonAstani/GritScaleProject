@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-import com.example.simon.glirtproject.Interface.ResultPass;
+import com.example.simon.glirtproject.Interface.resultPass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
     * here we define optional addFragment metthod wiht
     * @param fragment and string
     *this method is used in mainactiviyt to add in tagpager adapter.. we add fragment and title here*/
-public class TabpagerAdapter extends FragmentPagerAdapter implements ResultPass {
+public class TabpagerAdapter extends FragmentPagerAdapter implements resultPass {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
     TabpagerAdapter mtabpagerAdapter;

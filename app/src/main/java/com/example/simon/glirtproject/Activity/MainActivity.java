@@ -11,13 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.simon.glirtproject.Adapter.TabpagerAdapter;
-import com.example.simon.glirtproject.Interface.ResultPass;
+import com.example.simon.glirtproject.Interface.resultPass;
 import com.example.simon.glirtproject.R;
 import com.example.simon.glirtproject.fragments.GlobalResultFragment;
 import com.example.simon.glirtproject.fragments.gritFragment;
 import com.example.simon.glirtproject.fragments.resultFragment;
 
-public class MainActivity extends AppCompatActivity implements ResultPass {
+public class MainActivity extends AppCompatActivity implements resultPass {
     private ViewPager mviewPager;
     private TabLayout mTabLayout;
     //tabpagerAdapter is a custom adapter class that provides fragment required for view pager

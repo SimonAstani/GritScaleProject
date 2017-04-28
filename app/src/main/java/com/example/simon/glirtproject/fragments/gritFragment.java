@@ -1,7 +1,6 @@
 package com.example.simon.glirtproject.fragments;
 
 import android.app.Activity;
-import android.icu.text.DecimalFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -12,21 +11,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
-import com.example.simon.glirtproject.Interface.ResultPass;
+import com.example.simon.glirtproject.Interface.resultPass;
 import com.example.simon.glirtproject.R;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by Simon on 2/1/2017.
  */
 
-public class gritFragment extends Fragment implements ResultPass {
+public class gritFragment extends Fragment {
 
     private float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
     private RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
             radioGroup8, radioGroup9, radioGroup10, radioGroup11, radioGroup12;
     private FloatingActionButton fab;
     ViewPager viewPager;
-    ResultPass mResultPass;
+    resultPass mResultPass;
 
     public gritFragment() {
     }
@@ -382,19 +383,11 @@ public class gritFragment extends Fragment implements ResultPass {
         });
     }
 
-
-
-    @Override
-    public void onFabClicked(String data) {
-
-
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            this.mResultPass = (ResultPass) activity;
+            this.mResultPass = (resultPass) activity;
         } catch (ClassCastException e) {
             e.printStackTrace();
         }

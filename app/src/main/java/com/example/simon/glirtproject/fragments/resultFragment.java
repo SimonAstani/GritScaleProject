@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class resultFragment extends Fragment  {
     private static final String TAG = resultFragment.class.getSimpleName() ;
     private Button pushbtn;
     private EditText inputname;
+    ProgressBar progressBarResult;
     private TextView resultTv,surveyTv,txtuser;
     private String UserID;
     private FirebaseDatabase mfirebaseInstance;
@@ -58,8 +60,7 @@ public class resultFragment extends Fragment  {
         resultTv = (TextView) rootview.findViewById(R.id.resultTv);
         surveyTv = (TextView) rootview.findViewById(R.id.surveyTv);
         txtuser = (TextView) rootview.findViewById(R.id.txt_users);
-
-
+        progressBarResult = (ProgressBar) rootview.findViewById(R.id.progressBarResult);
 
 
         mfirebaseInstance = FirebaseDatabase.getInstance();
@@ -210,7 +211,6 @@ public class resultFragment extends Fragment  {
             surveyTv.setText("You Scored higher than about 65% of Nepali Adult");
 
         }
-
     }
 
     @Override
