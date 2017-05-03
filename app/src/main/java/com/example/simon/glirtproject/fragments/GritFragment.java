@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
-import com.example.simon.glirtproject.Interface.resultPass;
+import com.example.simon.glirtproject.Interface.ResultPass;
 import com.example.simon.glirtproject.R;
 
 import java.text.DecimalFormat;
@@ -20,22 +20,21 @@ import java.text.DecimalFormat;
  * Created by Simon on 2/1/2017.
  */
 
-public class gritFragment extends Fragment {
+public class GritFragment extends Fragment {
 
     private float value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, total;
     private RadioGroup radioGroup1, radioGroup2, radioGroup3, radioGroup4, radioGroup5, radioGroup6, radioGroup7,
             radioGroup8, radioGroup9, radioGroup10, radioGroup11, radioGroup12;
     private FloatingActionButton fab;
     ViewPager viewPager;
-    resultPass mResultPass;
+    ResultPass mResultPass;
 
-    public gritFragment() {
+    public GritFragment() {
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
  /*   parametere of onCreateView
@@ -46,7 +45,6 @@ public class gritFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //inflating the layout for tab fragment,,
-
         View popupView = inflater.inflate(R.layout.single_row, null);
         radioGroup1 = (RadioGroup) popupView.findViewById(R.id.radiogroup1);
         radioGroup2 = (RadioGroup) popupView.findViewById(R.id.radiogroup2);
@@ -62,11 +60,8 @@ public class gritFragment extends Fragment {
         radioGroup12 = (RadioGroup) popupView.findViewById(R.id.radiogroup12);
 
         viewPager = (ViewPager) getActivity().findViewById(R.id.container);
-
         fab = (FloatingActionButton) popupView.findViewById(R.id.fab);
-
         radiobuttonlogic();
-
         return popupView;
     }
 
@@ -339,7 +334,6 @@ public class gritFragment extends Fragment {
     }
 
     /*This method contains logic of floation action button where restult are displayed accoring to value obtained*/
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -361,24 +355,10 @@ public class gritFragment extends Fragment {
                 DecimalFormat formater = new DecimalFormat("#.##");
                 String twoDigitNo = formater.format(total);
 
-
-
                 viewPager.setCurrentItem(1);
-
                 //the twodigit string data gets update in string data inside the result interfae and
                 //the interface directly communicate with the main activity.
                 mResultPass.onFabClicked(twoDigitNo);
-
-
-
-
-                  /*  Intent intent = new Intent(getContext(), REsult.class);
-                    intent.putExtra("Gritvalue", twoDigitNo);
-                    startActivity(intent);*/
-
-
-//                }
-
             }
         });
     }
@@ -387,7 +367,7 @@ public class gritFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            this.mResultPass = (resultPass) activity;
+            this.mResultPass = (ResultPass) activity;
         } catch (ClassCastException e) {
             e.printStackTrace();
         }

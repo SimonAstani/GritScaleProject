@@ -39,7 +39,6 @@ public class GlobalResultFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
     //viewholder for recycle view
     public static class GlobalResultViewHolder extends RecyclerView.ViewHolder{
         public TextView gritname,gritscore,gritsurvey,gritupdateresult;
@@ -103,7 +102,4 @@ public class GlobalResultFragment extends Fragment {
         super.onStart();
 
     }
-
-
-
 }

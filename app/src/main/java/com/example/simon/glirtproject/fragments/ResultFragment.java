@@ -26,34 +26,30 @@ import com.google.firebase.database.ValueEventListener;
  * Created by Simon on 2/1/2017.
  */
 
-public class resultFragment extends Fragment  {
-
-    private static final String TAG = resultFragment.class.getSimpleName() ;
+public class ResultFragment extends Fragment {
+    private static final String TAG = ResultFragment.class.getSimpleName();
     private Button pushbtn;
     private EditText inputname;
     ProgressBar progressBarResult;
-    private TextView resultTv,surveyTv,txtuser;
+    private TextView resultTv, surveyTv, txtuser;
     private String UserID;
     private FirebaseDatabase mfirebaseInstance;
     private DatabaseReference mFirebaseDatabase;
-    String newdata = "";
+    String newdata;
 
-
-    public resultFragment() {
+    public ResultFragment() {
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
-
         //inflating the layout for tab fragment,,
-        View rootview = inflater.inflate(R.layout.activity_result,container,false);
+        View rootview = inflater.inflate(R.layout.activity_result, container, false);
         //initializing the field
         pushbtn = (Button) rootview.findViewById(R.id.push);
         inputname = (EditText) rootview.findViewById(R.id.inputName);
@@ -62,11 +58,9 @@ public class resultFragment extends Fragment  {
         txtuser = (TextView) rootview.findViewById(R.id.txt_users);
         progressBarResult = (ProgressBar) rootview.findViewById(R.id.progressBarResult);
 
-
         mfirebaseInstance = FirebaseDatabase.getInstance();
         //getting reference to node
         mFirebaseDatabase = mfirebaseInstance.getReference("users");
-
         //store app title to node users
         mfirebaseInstance.getReference("app_title").setValue("RealTime Record");
 
@@ -82,9 +76,7 @@ public class resultFragment extends Fragment  {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 //failed to read value
-                Log.e(TAG, "onCancelled:Failed ot read app title value ",databaseError.toException());
-
-
+                Log.e(TAG, "onCancelled:Failed ot read app title value ", databaseError.toException());
             }
         });
 
@@ -98,10 +90,10 @@ public class resultFragment extends Fragment  {
                 Toast.makeText(getActivity(), "checked push", Toast.LENGTH_SHORT).show();
 
                 //check for already existed Gritscale
-                if (TextUtils.isEmpty(UserID)){
-                    createUser(name,result,survey);
-                }else {
-                    updateUser(name,result,survey);
+                if (TextUtils.isEmpty(UserID)) {
+                    createUser(name, result, survey);
+                } else {
+                    updateUser(name, result, survey);
                 }
             }
         });
@@ -111,9 +103,9 @@ public class resultFragment extends Fragment  {
     }
 
     private void toogleButton() {
-        if (TextUtils.isEmpty(UserID)){
+        if (TextUtils.isEmpty(UserID)) {
             pushbtn.setText("save");
-        }else {
+        } else {
             pushbtn.setText("Update");
         }
     }
@@ -126,7 +118,7 @@ public class resultFragment extends Fragment  {
             UserID = mFirebaseDatabase.push().getKey();
         }
 
-        ResultField resultfield = new ResultField(name,result,survey);
+        ResultField resultfield = new ResultField(name, result, survey);
 
         mFirebaseDatabase.child(UserID).setValue(resultfield);
 
@@ -140,7 +132,7 @@ public class resultFragment extends Fragment  {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ResultField resultfield = dataSnapshot.getValue(ResultField.class);
                 //check for null
-                if (resultfield == null){
+                if (resultfield == null) {
                     Log.e(TAG, "User data is null!");
                     return;
                 }
@@ -191,33 +183,35 @@ public class resultFragment extends Fragment  {
     }
 
     /*this method is called after mainactivity mthod. carried data is displayed finallay*/
-    public void updateData(String data){
+    public void updateData(String data) {
         newdata = data;
         resultTv.setText(newdata);
-        
+
+        /*little trick to display string newdata to progressbar. We converted to Dobule multiply it to convert
+        * to integer as progress bas only accept the int datatypes. then finally setprogress in value after conversion to int :)*/
+        Double value = Double.parseDouble(newdata);
+        value = value * 10000;
+        int valueprogress = value.intValue();
+        progressBarResult.setMax(5 * 10000);
+        progressBarResult.setProgress(valueprogress);
+
 
         //seperating settext string into two values so i can make % value bold
         Double valuedouble = Double.valueOf(newdata);
         if (0 <= valuedouble && valuedouble <= 1.5) {
             surveyTv.setText("You Scored higher than about 10 % of Nepali Adult");
-
-        }else if ( 1.5 < valuedouble && valuedouble <= 3.15) {
+        } else if (1.5 < valuedouble && valuedouble <= 3.15) {
             surveyTv.setText("You Scored higher than about 35% of Nepali Adult");
-
-        }else if ( 3.15 < valuedouble && valuedouble <= 4.0) {
+        } else if (3.15 < valuedouble && valuedouble <= 4.0) {
             surveyTv.setText("You Scored higher than about 50% of Nepali Adult");
-
-        }else if ( 4.0 < valuedouble && valuedouble <= 5.0) {
+        } else if (4.0 < valuedouble && valuedouble <= 5.0) {
             surveyTv.setText("You Scored higher than about 65% of Nepali Adult");
-
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
         outState.putString("key", newdata);
     }
-
 }

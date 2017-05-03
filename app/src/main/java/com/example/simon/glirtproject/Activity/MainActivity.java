@@ -11,13 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.simon.glirtproject.Adapter.TabpagerAdapter;
-import com.example.simon.glirtproject.Interface.resultPass;
+import com.example.simon.glirtproject.Interface.ResultPass;
 import com.example.simon.glirtproject.R;
 import com.example.simon.glirtproject.fragments.GlobalResultFragment;
-import com.example.simon.glirtproject.fragments.gritFragment;
-import com.example.simon.glirtproject.fragments.resultFragment;
+import com.example.simon.glirtproject.fragments.GritFragment;
+import com.example.simon.glirtproject.fragments.ResultFragment;
 
-public class MainActivity extends AppCompatActivity implements resultPass {
+public class MainActivity extends AppCompatActivity implements ResultPass {
     private ViewPager mviewPager;
     private TabLayout mTabLayout;
     //tabpagerAdapter is a custom adapter class that provides fragment required for view pager
@@ -38,18 +38,15 @@ public class MainActivity extends AppCompatActivity implements resultPass {
         //tablayout changes the page based on tab clicked
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mviewPager);
-
-
     }
 
     //this method implement methods from tabpagerAdpater that is used to add fragment and title
     private void setupViewPager(ViewPager mviewPager) {
         tabPagerAdapter = new TabpagerAdapter(getSupportFragmentManager());
-        tabPagerAdapter.addFragment(new gritFragment(), "GritScale");
-        tabPagerAdapter.addFragment(new resultFragment(), "Your Result");
+        tabPagerAdapter.addFragment(new GritFragment(), "GritScale");
+        tabPagerAdapter.addFragment(new ResultFragment(), "Your Result");
         tabPagerAdapter.addFragment(new GlobalResultFragment(), "Global Result");
         mviewPager.setAdapter(tabPagerAdapter);
-
     }
 
     @Override
@@ -84,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements resultPass {
             share.setType("text/plain");
             startActivity(Intent.createChooser(share, "share in social media"));
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 
     /*onFaBClicked must be implemtented when we are traying to communicate bewtween fragments inside tab7
     * steps: 1. implements interface and use method777
@@ -95,8 +92,7 @@ public class MainActivity extends AppCompatActivity implements resultPass {
     * 4. update the data in the final*/
     @Override
     public void onFabClicked(String data) {
-        resultFragment RF = (resultFragment) tabPagerAdapter.getItem(1);
+        ResultFragment RF = (ResultFragment) tabPagerAdapter.getItem(1);
         RF.updateData(data);
-
     }
 }
