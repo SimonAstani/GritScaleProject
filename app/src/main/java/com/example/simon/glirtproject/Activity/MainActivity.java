@@ -3,12 +3,14 @@ package com.example.simon.glirtproject.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.simon.glirtproject.Adapter.TabpagerAdapter;
 import com.example.simon.glirtproject.Interface.ResultPass;
@@ -24,11 +26,15 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
     private TabLayout mTabLayout;
     //tabpagerAdapter is a custom adapter class that provides fragment required for view pager
     private TabpagerAdapter tabPagerAdapter;
+    private TextView gritInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //changing grit info dynamicially in time
+        gritInfo = (TextView) findViewById(R.id.gritIntro);
+        changeGritText();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -40,6 +46,26 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
         //tablayout changes the page based on tab clicked
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mviewPager);
+    }
+
+    //change the collapsing toolbar text dynamically
+    // TODO: 5/19/2017 string array is not dynamicially displayed in every 5 sec. need to be fixed
+    
+    private void changeGritText(){
+        final String[] gritArray = getResources().getStringArray(R.array.gritInformation);
+
+        final Handler gritInfoHanlder = new Handler();
+        Runnable tipsRunnable = new Runnable() {
+            @Override
+            public void run()
+            {
+                int tipPosition = 0;
+                //set number of tip(randon/another way)
+                gritInfo.setText(gritArray[tipPosition]);
+                gritInfoHanlder.postDelayed(this, 5000);
+            }
+        };
+        gritInfoHanlder.post(tipsRunnable);
     }
 
     //this method implement methods from tabpagerAdpater that is used to add fragment and title
