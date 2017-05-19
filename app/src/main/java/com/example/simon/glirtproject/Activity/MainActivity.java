@@ -17,6 +17,8 @@ import com.example.simon.glirtproject.fragments.GlobalResultFragment;
 import com.example.simon.glirtproject.fragments.GritFragment;
 import com.example.simon.glirtproject.fragments.ResultFragment;
 
+/*new feature brach*/
+
 public class MainActivity extends AppCompatActivity implements ResultPass {
     private ViewPager mviewPager;
     private TabLayout mTabLayout;

@@ -3,6 +3,7 @@ package com.example.simon.glirtproject.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,10 +26,11 @@ public class GlobalResultFragment extends Fragment {
     private LinearLayoutManager mlinearLayoutManager;
     //recycler adapter
     //@param <object,viewholder>
-    private FirebaseRecyclerAdapter<ResultField,GlobalResultViewHolder> mfirebaseAdapter;
+    private FirebaseRecyclerAdapter<ResultField, GlobalResultViewHolder> mfirebaseAdapter;
     private FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseReference;
     public static final String USERS = "users";
+    private SwipeRefreshLayout swipeContainer;
 
 
     public GlobalResultFragment() {
@@ -39,9 +41,11 @@ public class GlobalResultFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+
     //viewholder for recycle view
-    public static class GlobalResultViewHolder extends RecyclerView.ViewHolder{
-        public TextView gritname,gritscore,gritsurvey,gritupdateresult;
+    public static class GlobalResultViewHolder extends RecyclerView.ViewHolder {
+        public TextView gritname, gritscore, gritsurvey, gritupdateresult;
+
 
         public GlobalResultViewHolder(View itemView) {
             super(itemView);
@@ -56,17 +60,35 @@ public class GlobalResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //inflating the layout for tab fragment,,
-        View rootview = inflater.inflate(R.layout.globalresult,container,false);
+        View rootview = inflater.inflate(R.layout.globalresult, container, false);
         //recycleview
         mglobalrecycleResult = (RecyclerView) rootview.findViewById(R.id.globeResult);
         mglobalrecycleResult.setHasFixedSize(true);
         //linear layout manager for recycle view
         mlinearLayoutManager = new LinearLayoutManager(getActivity());
         mlinearLayoutManager.setStackFromEnd(true);
+
+        //refresh layout in recycleview
+        swipeContainer = (SwipeRefreshLayout) rootview.findViewById(R.id.swipeContainer);
+        swipeContainer.setColorSchemeResources(R.color.colorAccent);
+        loadItem();
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadItem();
+                swipeContainer.setRefreshing(false);
+
+            }
+        });
+
+        return rootview;
+    }
+
+    public void loadItem(){
         //send a query to database
         //Database Initialization get instance of firebase app that is link in json folder
         mdatabaseReference = FirebaseDatabase.getInstance().getReference();
-        mfirebaseAdapter = new FirebaseRecyclerAdapter<ResultField,GlobalResultViewHolder>(
+        mfirebaseAdapter = new FirebaseRecyclerAdapter<ResultField, GlobalResultViewHolder>(
                 ResultField.class,
                 R.layout.globe_cardvw_result,
                 GlobalResultViewHolder.class,
@@ -80,13 +102,13 @@ public class GlobalResultFragment extends Fragment {
             }
         };
 
-        mfirebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver(){
+        mfirebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
-            public void onItemRangeInserted(int positionStart, int itemCount){
+            public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
                 int roomCount = mfirebaseAdapter.getItemCount();
                 int lastVisiblePosition = mlinearLayoutManager.findLastCompletelyVisibleItemPosition();
-                if (lastVisiblePosition == -1 || (positionStart >= (roomCount -1) && lastVisiblePosition == (positionStart -1))){
+                if (lastVisiblePosition == -1 || (positionStart >= (roomCount - 1) && lastVisiblePosition == (positionStart - 1))) {
                     mglobalrecycleResult.scrollToPosition(positionStart);
                 }
             }
@@ -94,12 +116,10 @@ public class GlobalResultFragment extends Fragment {
         mglobalrecycleResult.setLayoutManager(mlinearLayoutManager);
         mglobalrecycleResult.setAdapter(mfirebaseAdapter);
 
-        return rootview;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
     }
 }

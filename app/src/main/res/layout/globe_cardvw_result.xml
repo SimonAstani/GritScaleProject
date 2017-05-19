@@ -1,30 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="@dimen/activity_horizontal_margin">
 
-    <TextView
-        android:id="@+id/globeGritScore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="GritScore" />
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
 
-    <TextView
-        android:id="@+id/globeGritName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gritusername" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
-    <TextView
-        android:id="@+id/globeGritSurvey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Globe grit Survey" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/twitter"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/globeGritSurvey" />
 
-    <TextView
-        android:id="@+id/globeupdateScire"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="globeUpdateScore" />
-</LinearLayout>
+            <TextView
+                android:id="@+id/globeGritScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GritScore"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="129dp" />
+
+
+            <TextView
+                android:id="@+id/globeGritName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gritusername"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/globeGritScore"
+                android:layout_marginTop="7dp" />
+
+            <TextView
+                android:id="@+id/globeGritSurvey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Globe grit Survey"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/globeupdateScire"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/globeupdateScire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="globeUpdateScore"
+                android:layout_below="@+id/globeGritScore"
+                android:layout_alignStart="@+id/globeGritScore" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
