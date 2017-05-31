@@ -50,22 +50,25 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
 
     //change the collapsing toolbar text dynamically
     // TODO: 5/19/2017 string array is not dynamicially displayed in every 5 sec. need to be fixed
-    
-    private void changeGritText(){
-        final String[] gritArray = getResources().getStringArray(R.array.gritInformation);
 
+    private void changeGritText() {
+        final String[] gritArray = getResources().getStringArray(R.array.gritInformation);
         final Handler gritInfoHanlder = new Handler();
-        Runnable tipsRunnable = new Runnable() {
-            @Override
-            public void run()
-            {
+        gritInfoHanlder.post(new Runnable() {
+
                 int tipPosition = 0;
+            @Override
+            public void run() {
                 //set number of tip(randon/another way)
                 gritInfo.setText(gritArray[tipPosition]);
-                gritInfoHanlder.postDelayed(this, 5000);
+                tipPosition++;
+                if (tipPosition == gritArray.length) {
+                    gritInfoHanlder.removeCallbacks(this);
+                } else {
+                    gritInfoHanlder.postDelayed(this, 1000 * 3);
+                }
             }
-        };
-        gritInfoHanlder.post(tipsRunnable);
+        });
     }
 
     //this method implement methods from tabpagerAdpater that is used to add fragment and title

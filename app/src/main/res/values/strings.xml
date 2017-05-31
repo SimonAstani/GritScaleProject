@@ -28,12 +28,14 @@
     <string name="section_format">Hello World from section: %1$d</string>
 
     <string-array name="gritInformation">
+        <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
         <item>a combination of passion and perseverance for a singularly important goal—is the hallmark of high achievers in every domain.</item>
         <item> Grit offers a truly sane perspective: that true success comes when we devote ourselves to endeavors that give us joy and purpose.”</item>
         <item>Grit is the tendency to sustain interest in and effort toward very long-term goals (Duckworth et al., 2007)</item>
         <item>Grit is passion and perseverance for long-term goals.</item>
         <item>Talent and luck matter to success. But talent and luck are no guarantee of grit. And in the very long run, I think grit may matter as least as much, if not more.</item>
-        <item></item>
+        <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
+
     </string-array>
 
 </resources>
