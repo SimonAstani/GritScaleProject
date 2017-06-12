@@ -89,10 +89,14 @@ public class ResultFragment extends Fragment {
                 String survey = surveyTv.getText().toString();
                 Toast.makeText(getActivity(), "checked push", Toast.LENGTH_SHORT).show();
 
+                /*making sure to input name before pushing to cloud*/
+                if(TextUtils.isEmpty(name)){
+                    inputname.setError("make sure you input name");
+                }
                 //check for already existed Gritscale
-                if (TextUtils.isEmpty(UserID)) {
+                else if(TextUtils.isEmpty(UserID)) {
                     createUser(name, result, survey);
-                } else {
+                } else{
                     updateUser(name, result, survey);
                 }
             }
@@ -111,7 +115,6 @@ public class ResultFragment extends Fragment {
     }
 
     private void createUser(String name, String result, String survey) {
-        // TODO
         // In real apps this gritscale should be fetched
         // by implementing firebase auth
         if (TextUtils.isEmpty(UserID)) {
@@ -188,7 +191,9 @@ public class ResultFragment extends Fragment {
         resultTv.setText(newdata);
 
         /*little trick to display string newdata to progressbar. We converted to Dobule multiply it to convert
-        * to integer as progress bas only accept the int datatypes. then finally setprogress in value after conversion to int :)*/
+        * to integer as progress bas only accept the int datatypes.
+        * then finally setprogress in value after conversion to int :)*/
+
         Double value = Double.parseDouble(newdata);
         value = value * 10000;
         int valueprogress = value.intValue();

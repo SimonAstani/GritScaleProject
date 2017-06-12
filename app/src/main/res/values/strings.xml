@@ -2,7 +2,6 @@
     <string name="app_name">GlirtProject</string>
     <string name="action_settings">Settings</string>
 
-
     <string name="radio1">Very much like me</string>
     <string name="radio2">Mostly like me</string>
     <string name="radio3">Somewhat like me</string>
@@ -25,7 +24,7 @@
     <string name="shareResult"> "HI! I got my grit score from this app"It define my passion and perseverance for long-term goals.
         Share among your friends. Download it at https://www.sumanastani.com.np/blog and know yout Grit as well</string>
     <string name="title_activity_tab">TabActivity</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="about_grit">Know more about grit</string>
 
     <string-array name="gritInformation">
         <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
@@ -34,8 +33,52 @@
         <item>Grit is the tendency to sustain interest in and effort toward very long-term goals (Duckworth et al., 2007)</item>
         <item>Grit is passion and perseverance for long-term goals.</item>
         <item>Talent and luck matter to success. But talent and luck are no guarantee of grit. And in the very long run, I think grit may matter as least as much, if not more.</item>
-        <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
-
+        <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.
+        </item>
     </string-array>
 
+    <!--grit intro questiona and answer-->
+    <string-array name="gritIntro_Question">
+        <item>1. What is grit?</item>
+        <item>2. Is there anything I can do to build my grit?</item>
+        <item>3. A lot of your work is for kids in school. What about building grit in the workforce?</item>
+        <item>4. What can I use the Grit Scale for?</item>
+        <item>5. If I’m gritty about one thing, will I be gritty about other things?</item>
+        <item>6. When does grit matter most?</item>
+        <item>7. Is grit the same as self-control or conscientiousness?</item>
+        <item>8. Can you be too gritty?</item>
+        <item>9. Are women grittier than men? Or are men grittier than women?</item>
+        <item>10. Does the message of grit imply that poverty and inequality don’t matter?</item>
+        <item>11. I don’t understand what you mean by “talent”?</item>
+        <item>12. Is grit more important than honesty and kindness?</item>
+        <item>13. Isn’t grit, like everything else, in your genes? So why write a book about how to grow grit?</item>
+        <item>14. Isn’t it more important to be happy than successful?</item>
+        <item>15. There is a chapter in “Grit” on parenting. Where is the chapter on teaching grit in schools?</item>
+    </string-array>
+
+    <string-array name="gritIntro_Answer">
+        <item>Grit is passion and perseverance for long-term goals.
+            One way to think about grit is to consider what grit isn’t.
+            Grit isn’t talent. Grit isn’t luck. Grit isn’t how intensely, for the moment, you want something.
+            Instead, grit is about having what some researchers call an”ultimate concern”–a goal you care about so much that it organizes and gives meaning to almost everything you do. And grit is holding steadfast to that goal. Even when you fall down. Even when you screw up. Even when progress toward that goal is halting or slow.
+            Talent and luck matter to success. But talent and luck are no guarantee of grit. And in the very long run, I think grit may matter as least as much, if not more.
+        </item>
+        <item>Our lab is constantly developing and testing brief, online activities aimed at building grit.
+            If you are at least 18 years old and want to try one out, &lt;a https://sasupenn.qualtrics.com/SE/?SID=SV_et9nFw40c1kNdYN">Click here&lt;/a>
+        </item>
+    </string-array>
+
+    <!--new grit collection
+
+"I think the Grit Scale can be used for research and for self-reflection,"
+
+limitations make it inappropriate for many other uses, including selecting employees, admitting students to college, gauging the performance of teachers, or comparing schools or countries to each other."
+
+Take the test to find out your grit score, and then read more about its caveats, too.
+
+Subscribe
+Got a goal? If you're going to reach it, you need some grit. It determines if and how you're able to push through challenges and be successful (in whatever you do).
+
+
+The Grit Scale was developed by Angela Duckworth, a professor of psychology at the University of Pennsylvania, to identify traits that might predict success. Here is a sample. The complete test, which appears in her forthcoming book, “Grit: The Power of Passion and Perseverance,” is here-->
 </resources>

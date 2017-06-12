@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
     }
 
     //change the collapsing toolbar text dynamically
-    // TODO: 5/19/2017 string array is not dynamicially displayed in every 5 sec. need to be fixed
 
     private void changeGritText() {
         final String[] gritArray = getResources().getStringArray(R.array.gritInformation);
@@ -111,6 +110,9 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
             share.putExtra(android.content.Intent.EXTRA_TEXT, message);
             share.setType("text/plain");
             startActivity(Intent.createChooser(share, "share in social media"));
+        }
+        if (id == R.id.about_grit){
+            startActivity(new Intent(getApplicationContext(),GritIntroActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
