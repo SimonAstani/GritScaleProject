@@ -1,6 +1,7 @@
 package com.example.simon.glirtproject.Activity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
 
         //tablayout changes the page based on tab clicked
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
+//        mTabLayout.setTabTextColors(ColorStateList.valueOf(getResources().getColor(R.color.white)));
         mTabLayout.setupWithViewPager(mviewPager);
     }
 

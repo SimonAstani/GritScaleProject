@@ -3,6 +3,8 @@ package com.example.simon.glirtproject.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,14 +13,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.andexert.expandablelayout.library.ExpandableLayoutListView;
+import com.example.simon.glirtproject.Adapter.ExpandableListAdapter;
 import com.example.simon.glirtproject.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class GritIntroActivity extends AppCompatActivity {
+    private static ExpandableListView expandableListView;
+    private static ExpandableListAdapter adapter;
     TextView textView;
 
     @Override
@@ -26,67 +35,99 @@ public class GritIntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grit_intro);
 
-        String[] array = getResources().getStringArray(R.array.gritIntro_Question);
-         textView = (TextView) findViewById(R.id.header_text);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.view_row, R.id.header_text,array);
-        final ExpandableLayoutListView expandableLayoutListView = (ExpandableLayoutListView) findViewById(R.id.listview);
+        expandableListView = (ExpandableListView) findViewById(R.id.simple_expandable_listview);
+        // Setting group indicator null for custom indicator
+        expandableListView.setGroupIndicator(null);
 
-        expandableLayoutListView.setAdapter(arrayAdapter);
-        expandableLayoutListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String[] answer = getResources().getStringArray(R.array.gritIntro_Answer);
-                String value = (String) expandableLayoutListView.getItemAtPosition(position);
-                Toast.makeText(GritIntroActivity.this, ""+ value, Toast.LENGTH_SHORT).show();
-                textView.setText(value);
-                if (position == 0){
-                    textView.setText(answer[0]);
-                }else if(position ==1){
-                    textView.setText(answer[1]);
-                }
+        setItems();
+        //setListener();
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //enable action bar icon and toogle button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //incase you need to change icon
+        toolbar.setNavigationIcon(ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_arrow_back_white_24dp));
 
-            }
-        });
     }
 
+    private void setItems() {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        String[] Question_array = getResources().getStringArray(R.array.gritIntro_Question);
+        String[] Answer_array = getResources().getStringArray(R.array.gritIntro_Answer);
+        // Array list for header
+        ArrayList<String> header = new ArrayList<String>();
+
+        // Array list for child items
+        List<String> child1 = new ArrayList<String>();
+        List<String> child2 = new ArrayList<String>();
+        List<String> child3 = new ArrayList<String>();
+        List<String> child4 = new ArrayList<String>();
+        List<String> child5 = new ArrayList<String>();
+        List<String> child6 = new ArrayList<String>();
+        List<String> child7 = new ArrayList<String>();
+        List<String> child8 = new ArrayList<String>();
+        List<String> child9 = new ArrayList<String>();
+        List<String> child10 = new ArrayList<String>();
+        List<String> child11 = new ArrayList<String>();
+        List<String> child12 = new ArrayList<String>();
+        List<String> child13 = new ArrayList<String>();
+        List<String> child14 = new ArrayList<String>();
+        List<String> child15 = new ArrayList<String>();
+        child1.add(Answer_array[0]);
+        child2.add(Answer_array[1]);
+        child3.add(Answer_array[2]);
+        child4.add(Answer_array[3]);
+        child5.add(Answer_array[4]);
+        child6.add(Answer_array[5]);
+        child7.add(Answer_array[6]);
+        child8.add(Answer_array[7]);
+        child9.add(Answer_array[8]);
+        child10.add(Answer_array[9]);
+        child11.add(Answer_array[10]);
+        child12.add(Answer_array[11]);
+        child13.add(Answer_array[12]);
+        child14.add(Answer_array[13]);
+        child15.add(Answer_array[14]);
+
+        // Hash map for both header and child
+        HashMap<String, List<String>> hashMap = new HashMap<String, List<String>>();
+
+        // Adding headers to list
+        for (int i = 0; i <= 14; i++) {
+            header.add(Question_array[i]);
+        }
+
+        // Adding header and childs to hash map
+        hashMap.put(header.get(0), child1);
+        hashMap.put(header.get(1), child2);
+        hashMap.put(header.get(2), child3);
+        hashMap.put(header.get(3), child4);
+        hashMap.put(header.get(4), child5);
+        hashMap.put(header.get(5), child6);
+        hashMap.put(header.get(6), child7);
+        hashMap.put(header.get(7), child8);
+        hashMap.put(header.get(8), child9);
+        hashMap.put(header.get(9), child10);
+        hashMap.put(header.get(10), child11);
+        hashMap.put(header.get(11), child12);
+        hashMap.put(header.get(12), child13);
+        hashMap.put(header.get(13), child14);
+        hashMap.put(header.get(14), child15);
+
+
+        adapter = new ExpandableListAdapter(GritIntroActivity.this, header, hashMap);
+        // Setting adpater over expandablelistview
+        expandableListView.setAdapter(adapter);
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO: 3/6/17  need to work on toolbar in grit intro activity
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            //do something
-            return true;
-        }
-        if (id == R.id.about) {
-            String myweb = "http://www.sumanastani.com.np";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(myweb));
-            startActivity(i);
-        }
-        if (id == R.id.share) {
-            Intent share = new Intent(Intent.ACTION_SEND);
-            String message = getResources().getString(R.string.shareResult);
-            share.putExtra(android.content.Intent.EXTRA_TEXT, message);
-            share.setType("text/plain");
-            startActivity(Intent.createChooser(share, "share in social media"));
-        }
-        if (id == R.id.about_grit){
-            startActivity(new Intent(getApplicationContext(),GritIntroActivity.class));
-        }
+        if(item.getItemId() == android.R.id.home)
+            finish();
         return super.onOptionsItemSelected(item);
     }
 }

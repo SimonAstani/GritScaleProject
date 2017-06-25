@@ -1,8 +1,10 @@
 package com.example.simon.glirtproject.Adapter;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,8 @@ import java.util.List;
  * Created by Simon on 2/1/2017.
  */
 /*this adapter defines the fragemtn pager adapter*/
-    /*adapter acts as a link between data and activity here we use Fragement pager adapter to implement fragment
+    /*adapter acts as a link be
+tween data and activity here we use Fragement pager adapter to implement fragment
     * arraylist is used to store different fragments and fragment title
     * getitem returen posion of fragments
     * getcount dreturn size or no of fragment present
@@ -44,6 +47,7 @@ public class TabpagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
+
         return mFragmentTitleList.get(position);
     }
     /*this is addFragment method is used in Mainactivity inside setupViewPagerAdapter*/
