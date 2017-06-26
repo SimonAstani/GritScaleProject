@@ -2,8 +2,7 @@
 
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -19,67 +18,71 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="36dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:gravity="center"
-            android:text="Your Grit Score" />
+            android:text="Your Grit Score"
+            android:textAllCaps="true"
+            android:textColor="@color/text_secondaryblack"
+            android:textSize="@dimen/textsize_secondary"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/resultTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView"
             android:layout_below="@+id/textView"
-            android:layout_gravity="center"
-            android:background="@android:color/holo_red_light"
-            android:textSize="36sp" />
+            android:gravity="center"
+            android:hint="Grit Value"
+            android:textColor="@color/textColorMaindark"
+            android:textSize="30sp" />
 
         <ProgressBar
             android:id="@+id/progressBarResult"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin" />
 
         <TextView
             android:id="@+id/surveyTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="36dp"
-            android:layout_marginTop="26dp"
-            android:gravity="center"
-            android:hint="" />
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center" />
 
-        <Button
-            android:id="@+id/push"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Push to cloud" />
 
-        <TextView
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="36dp"
-            android:layout_marginTop="26dp"
-            android:gravity="center"
-            android:text="Share Your Score With Friends" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/inputName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="UserName" />
+            <EditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="UserName" />
+        </android.support.design.widget.TextInputLayout>
+
 
         <TextView
             android:id="@+id/txt_users"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="36dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:gravity="center"
             android:hint="Result from firebase" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabpush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_dialog_email" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

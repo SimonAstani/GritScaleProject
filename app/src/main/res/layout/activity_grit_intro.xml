@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/angela_duckwork"
-                    android:textColor="@color/textColorMain"
+                    android:textColor="@color/textColorMaindark"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/angela_describtion"
-                    android:textColor="@color/textColorMain"
+                    android:textColor="@color/text_secondaryblack"
                     android:textSize="12sp" />
             </LinearLayout>
 

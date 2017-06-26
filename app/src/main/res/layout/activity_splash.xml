@@ -27,7 +27,7 @@
             android:alpha="0"
             android:text="@string/gritsplashIntro"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-            android:textColor="@color/text_title"
+            android:textColor="@color/text_secondaryblack"
             android:textSize="@dimen/textsize_main"
             android:textStyle="bold"
             tools:alpha="1" />
@@ -46,23 +46,21 @@
             tools:alpha="1" />
 
         <Button
-            android:id="@+id/btn_choice1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:scaleX="0"
             android:scaleY="0"
-            android:text="A nice choice"
+            android:text="Find Your Grit"
             />
 
         <Button
-            android:id="@+id/btn_choice2"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:scaleX="0"
             android:scaleY="0"
-            android:text="Far better!"
+            android:text="Compare With Others"
             />
 
     </LinearLayout>

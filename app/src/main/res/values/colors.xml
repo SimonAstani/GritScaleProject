@@ -2,9 +2,8 @@
 <resources>
   <color name="colorPrimary">#18B6D9</color>
   <color name="colorPrimaryDark">#108CA6</color>
-  <color name="colorAccent">#03A9F4</color>
-  <color name="viewBg">#f1f5f8</color>
-  <color name="textColorMain">#40555A</color>
+  <color name="colorAccent">#E91E63</color>
+    <color name="textColorMaindark">#020202</color>
   <color name="white">#FAFAFA</color>
-  <color name="text_title">#4c4c4c</color>
+  <color name="text_secondaryblack">#4c4c4c</color>
 </resources>

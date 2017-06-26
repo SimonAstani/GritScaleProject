@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">GlirtProject</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Git GRIT ?</string>
+    <string name="action_feedback">Send FeedBack</string>
     <string name="angela_duckwork">Angela Duckwork</string>
-    <string name="angela_describtion">Angela Duckworth is the Christopher H. Browne Distinguished Professor of Psychology at the University of Pennsylvania.</string>
+    <string name="angela_describtion">The Grit Scale was developed by Angela Duckworth, a professor of psychology at the University of Pennsylvania, to identify traits that might predict success.</string>
 
     <string name="radio1">Very much like me</string>
     <string name="radio2">Mostly like me</string>
@@ -12,33 +12,34 @@
 
     <string name="title1">1.I have overcome setbacks to conquer an important challenge</string>
     <string name="title2">2. New ideas and projects sometimes distract me from previous ones. </string>
-    <string name="title3">3.My interests change from year to year.* </string>
+    <string name="title3">3.My interests change from year to year.</string>
     <string name="title4">4. Setbacks don’t discourage me. </string>
-    <string name="title5">5. I have been obsessed with a certain idea or project for a short time but later lost interest.* </string>
+    <string name="title5">5. I have been obsessed with a certain idea or project for a short time but later lost interest.</string>
     <string name="title6">6. I am a hard worker. </string>
-    <string name="title7">7. I often set a goal but later choose to pursue a different one.* </string>
+    <string name="title7">7. I often set a goal but later choose to pursue a different one.</string>
     <string name="title8">8. I have difficulty maintaining my focus on projects that take more than a few months to complete.</string>
     <string name="title9">9. I finish whatever I begin.</string>
     <string name="title10">10.I have achieved a goal that took years of work. </string>
-    <string name="title11">11.I become interested in new pursuits every few months.*</string>
+    <string name="title11">11.I become interested in new pursuits every few months.</string>
     <string name="title12">12.I am diligent. </string>
 
     <string name="shareResult"> "HI! I got my grit score from this app"It define my passion and perseverance for long-term goals.
-        Share among your friends. Download it at https://www.sumanastani.com.np/blog and know yout Grit as well</string>
+        Share among your friends.Want to know more about grit and find yours.Got a goal? If you are going to reach it, you need some grit. It determines if and how you are able to push through challenges and be successful (in whatever you do).
+        Take the test to find out your grit score, and then read more about its caveats, too.Download it at https://www.sumanastani.com.np/blog and know yout Grit as well</string>
     <string name="about_grit">Know more about grit</string>
-    <string name="gritsplashIntro">Do you Got Grit ? </string>
-    <string name="gritsplashInfo2">scale your perserverance and passion for long term goal</string>
-
+    <string name="gritsplashIntro">Got Grit? Take the test to find out your grit score.</string>
+    <string name="gritsplashInfo2">scale your perserverance and passion for long term goal.A research for your self-reflection.</string>
+    <string name="feedBackTitle">Any issues | Feedback | New Ideas | Collaboration ?</string>
+    <string name="FeedBackMEssage">Namaste ! I am  student of Computer Science. Diving deep to the never ending knowledge of sea has always been my passion. In my free time I love to code, learn and share the knowledge. If you have any feedback, project collaboration. Do Ping me back.</string>
 
     <string-array name="gritInformation">
-        <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
-        <item>a combination of passion and perseverance for a singularly important goal—is the hallmark of high achievers in every domain.</item>
+        <item>There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
+        <item>A combination of passion and perseverance for a singularly important goal—is the hallmark of high achievers in every domain.</item>
         <item> Grit offers a truly sane perspective: that true success comes when we devote ourselves to endeavors that give us joy and purpose.”</item>
         <item>Grit is the tendency to sustain interest in and effort toward very long-term goals (Duckworth et al., 2007)</item>
-        <item>Grit is passion and perseverance for long-term goals.</item>
+        <item>The Mind Lead The Body Obeys. Grow your Mind , Grow Your Life</item>
         <item>Talent and luck matter to success. But talent and luck are no guarantee of grit. And in the very long run, I think grit may matter as least as much, if not more.</item>
-        <item>Here are a number of statements that may or may not apply to you. There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.
-        </item>
+        <item>There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
     </string-array>
 
     <!--grit intro questiona and answer-->
@@ -108,8 +109,6 @@
 
 
     <!--new grit collection
-
-"I think the Grit Scale can be used for research and for self-reflection,"
 
 limitations make it inappropriate for many other uses, including selecting employees, admitting students to college, gauging the performance of teachers, or comparing schools or countries to each other."
 

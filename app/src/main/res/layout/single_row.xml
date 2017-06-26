@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title1"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title2"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title3"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -150,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title4"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -193,7 +193,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title5"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -236,7 +236,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title6"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -279,7 +279,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title7"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -322,7 +322,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title8"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -365,7 +365,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title9"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -408,7 +408,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title10"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -451,7 +451,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title11"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -494,7 +494,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title12"
-                android:textColor="@color/textColorMain"
+                android:textColor="@color/text_secondaryblack"
                 android:textSize="@dimen/textsize_secondary" />
 
             <RadioGroup
@@ -545,7 +545,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@drawable/ic_scale_balance" />
 
 </android.support.design.widget.CoordinatorLayout>
 
