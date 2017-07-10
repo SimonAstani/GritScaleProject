@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "719778589536",
-    "firebase_url": "https://gritscale.firebaseio.com",
-    "project_id": "gritscale",
-    "storage_bucket": "gritscale.appspot.com"
+    "project_number": "841332734195",
+    "firebase_url": "https://gritscale-aad2c.firebaseio.com",
+    "project_id": "gritscale-aad2c",
+    "storage_bucket": "gritscale-aad2c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:719778589536:android:43515999b617a320",
+        "mobilesdk_app_id": "1:841332734195:android:5568d03de6c54362",
         "android_client_info": {
-          "package_name": "com.example.simon.glirtproject"
+          "package_name": "com.simanastani.np.glirtproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "719778589536-es7vl68k6um4phhu0kqe5r76h331lnja.apps.googleusercontent.com",
+          "client_id": "841332734195-5k72rn1p59svcj59jqf5503t4ojh9213.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simanastani.np.glirtproject",
+            "certificate_hash": "45f2d825e358419a4b87eef40fa448e1205830f1"
+          }
+        },
+        {
+          "client_id": "841332734195-i2bpcqs9i0rlloarnlq3l3gekk5j9gjv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAFiBItK1tnsv3afTlqNZyM3uzt0Bx7qx0"
+          "current_key": "AIzaSyDYUEwDj5kFd536RyvbytQRXR_auDD5iK4"
         }
       ],
       "services": {
@@ -32,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "719778589536-es7vl68k6um4phhu0kqe5r76h331lnja.apps.googleusercontent.com",
+              "client_id": "841332734195-i2bpcqs9i0rlloarnlq3l3gekk5j9gjv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

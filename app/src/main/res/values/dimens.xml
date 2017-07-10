@@ -8,7 +8,6 @@
     <dimen name="appbar_contentOverheight">160dp</dimen>
     <dimen name="overall_margin">8dp</dimen>
 
-    <dimen name="textsize_main">24dp</dimen>
     <dimen name="textsize_secondary">16dp</dimen>
 
 

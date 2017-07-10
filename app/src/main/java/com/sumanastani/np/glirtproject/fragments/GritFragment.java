@@ -348,7 +348,7 @@ public class GritFragment extends Fragment {
                         radioGroup9.getCheckedRadioButtonId() == -1 || radioGroup10.getCheckedRadioButtonId() == -1 ||
                         radioGroup11.getCheckedRadioButtonId() == -1 || radioGroup12.getCheckedRadioButtonId() == -1) {
 
-                    Snackbar.make(view, "Please select atleast one answer from each Before Submitting", Snackbar.LENGTH_LONG)
+                    Snackbar.make(view, "Please ! select atleast one answer from each Before Submitting", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
                 } else {

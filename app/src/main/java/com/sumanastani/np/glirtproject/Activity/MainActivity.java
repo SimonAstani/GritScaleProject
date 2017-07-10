@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
                 if (tipPosition == gritArray.length) {
                     gritInfoHanlder.removeCallbacks(this);
                 } else {
-                    gritInfoHanlder.postDelayed(this, 1000 * 4);//in every 4 sec
+                    gritInfoHanlder.postDelayed(this, 1000 * 5);//in every 4 sec
                 }
             }
         });
@@ -135,17 +135,22 @@ public class MainActivity extends AppCompatActivity implements ResultPass {
                 sendMail();
             }
         });
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
     }
 
     private void sendMail() {
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("text/plain");
-        i.putExtra(Intent.EXTRA_EMAIL, new String("sumanastani@gmail.com"));
-        i.putExtra(Intent.EXTRA_SUBJECT, new String("Regarding GritScale Feedback"));
-        i.putExtra(Intent.EXTRA_TEXT, new String(""));
+        String mailto = "mailto:sumanastani@gmail.com";
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse(mailto));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, new String("Regarding GritScale Feedback"));
+        emailIntent.putExtra(Intent.EXTRA_TEXT,new String("Greating Suman Astani ! \n"));
+
         try {
-            startActivity(Intent.createChooser(i, "Send Mail"));
-        } catch (ActivityNotFoundException ex) {
+            startActivity(Intent.createChooser(emailIntent,"Send FeedBack"));
+        } catch (ActivityNotFoundException e) {
+            //TODO: Handle case where no email app is available
             Toast.makeText(this, "No any email clients is Installed", Toast.LENGTH_SHORT).show();
         }
     }

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Your Grit Score"
             android:textAllCaps="true"
@@ -54,6 +54,16 @@
             android:gravity="center" />
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:textColor="@color/textColorMaindark"
+            android:text="@string/grit_resultdetail" />
+
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -65,24 +75,12 @@
                 android:hint="UserName" />
         </android.support.design.widget.TextInputLayout>
 
-
-        <TextView
-            android:id="@+id/txt_users"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:gravity="center"
-            android:hint="Result from firebase" />
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabpush"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_dialog_email" />
+            android:layout_margin="@dimen/fab_margin"/>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

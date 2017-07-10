@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Git GRIT ?</string>
+    <string name="app_name">GritScale</string>
     <string name="action_feedback">Send FeedBack</string>
     <string name="angela_duckwork">Angela Duckwork</string>
     <string name="angela_describtion">The Grit Scale was developed by Angela Duckworth, a professor of psychology at the University of Pennsylvania, to identify traits that might predict success.</string>
@@ -27,10 +27,13 @@
         Share among your friends.Want to know more about grit and find yours.Got a goal? If you are going to reach it, you need some grit. It determines if and how you are able to push through challenges and be successful (in whatever you do).
         Take the test to find out your grit score, and then read more about its caveats, too.Download it at https://www.sumanastani.com.np/blog and know yout Grit as well</string>
     <string name="about_grit">Know more about grit</string>
-    <string name="gritsplashIntro">Got Grit? Take the test to find out your grit score.</string>
+    <string name="gritsplashIntro">Got Grit? \n Take the test to find out your grit score.</string>
     <string name="gritsplashInfo2">scale your perserverance and passion for long term goal.A research for your self-reflection.</string>
     <string name="feedBackTitle">Any issues | Feedback | New Ideas | Collaboration ?</string>
-    <string name="FeedBackMEssage">Namaste ! I am  student of Computer Science. Diving deep to the never ending knowledge of sea has always been my passion. In my free time I love to code, learn and share the knowledge. If you have any feedback, project collaboration. Do Ping me back.</string>
+    <string name="FeedBackMEssage">Hello !I am  student of Computer Science. Diving deep to the never ending knowledge of sea
+        has always been my passion.I love to code and share the knowledge during my free time.If you have any feedback, project collaboration. Do Ping me back.</string>
+    <string name="grit_resultdetail">The maximun score is 5 (Extermely Gritty)  \n
+        The lowest scale is 1 (not at all gritty)\n The more score you get, you  are more passionate towards your goal.</string>
 
     <string-array name="gritInformation">
         <item>There are no right or wrong answers, so just answer honestly, considering how you compare to most people. At the end, you’ll get a score that reflects how passionate and persevering you see yourself to be.</item>
@@ -107,16 +110,4 @@
         <item>The entire book is about teaching grit. Before I became a psychologist, I was a classroom teacher. It was as a teacher that I discovered how important psychology was to a child’s achievement. It’s not an exaggeration to say that every chapter in this book has special relevance to teachers. Chapters Two and Three might be especially useful when explaining the importance of effort (versus talent) to students. Chapters Six, Seven, Eight, and Nine on interest, practice, purpose, and hope are where I define the four psychological assets that lead to grit. In Chapter Nine, I talk about parenting for grit—but the same dynamics play out in the classroom. In Chapter Ten, I explain why Harvard and other colleges are eager to see students cultivate their grit in extracurricular activities. Finally, a teacher who wants the classroom culture to support grit will find Chapter Twelve full of examples of how to do that.</item>
     </string-array>
 
-
-    <!--new grit collection
-
-limitations make it inappropriate for many other uses, including selecting employees, admitting students to college, gauging the performance of teachers, or comparing schools or countries to each other."
-
-Take the test to find out your grit score, and then read more about its caveats, too.
-
-Subscribe
-Got a goal? If you're going to reach it, you need some grit. It determines if and how you're able to push through challenges and be successful (in whatever you do).
-
-
-The Grit Scale was developed by Angela Duckworth, a professor of psychology at the University of Pennsylvania, to identify traits that might predict success. Here is a sample. The complete test, which appears in her forthcoming book, “Grit: The Power of Passion and Perseverance,” is here-->
 </resources>

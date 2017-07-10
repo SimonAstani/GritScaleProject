@@ -60,7 +60,7 @@ public class ResultFragment extends Fragment {
         inputname = (EditText) rootview.findViewById(R.id.inputName);
         resultTv = (TextView) rootview.findViewById(R.id.resultTv);
         surveyTv = (TextView) rootview.findViewById(R.id.surveyTv);
-        txtuser = (TextView) rootview.findViewById(R.id.txt_users);
+//        txtuser = (TextView) rootview.findViewById(R.id.txt_users);
         progressBarResult = (ProgressBar) rootview.findViewById(R.id.progressBarResult);
 
         mfirebaseInstance = FirebaseDatabase.getInstance();
@@ -92,16 +92,21 @@ public class ResultFragment extends Fragment {
                 String name = inputname.getText().toString();
                 String result = resultTv.getText().toString();
                 String survey = surveyTv.getText().toString();
-                Toast.makeText(getActivity(), "checked push", Toast.LENGTH_SHORT).show();
+
 
                 /*making sure to input name before pushing to cloud*/
-                if (TextUtils.isEmpty(name)) {
+                if (TextUtils.isEmpty(survey)){
+                    Toast.makeText(getActivity(), "Please ! Answer 12 set Of Question to find your grit score", Toast.LENGTH_SHORT).show();
+                }
+                else if (TextUtils.isEmpty(name)) {
                     inputname.setError("make sure you input your name");
                 }
                 //check for already existed Gritscale
                 else if (TextUtils.isEmpty(UserID)) {
+                    Toast.makeText(getActivity(), "Information Pushed. View Others result in Global Result tab", Toast.LENGTH_LONG).show();
                     createUser(name, result, survey);
                 } else {
+                    Toast.makeText(getActivity(), "Information updated to Cloud", Toast.LENGTH_LONG).show();
                     updateUser(name, result, survey);
                 }
             }
@@ -149,7 +154,7 @@ public class ResultFragment extends Fragment {
                 Log.e(TAG, "User data is changed!" + resultfield.name + ", " + resultfield.gritscore + ", " + resultfield.survey);
 
                 // Display newly updated data
-                txtuser.setText(resultfield.name + ", " + resultfield.gritscore + ", " + resultfield.survey);
+//                txtuser.setText(resultfield.name + ", " + resultfield.gritscore + ", " + resultfield.survey);
 
                 toogleButton();
             }
@@ -202,13 +207,13 @@ public class ResultFragment extends Fragment {
         //seperating settext string into two values so i can make % value bold
         Double valuedouble = Double.valueOf(newdata);
         if (0 <= valuedouble && valuedouble <= 1.5) {
-            surveyTv.setText("You Scored higher than about 10 % of Nepali Adult");
+            surveyTv.setText("Scored higher than about 10 % of Nepali Adult");
         } else if (1.5 < valuedouble && valuedouble <= 3.15) {
-            surveyTv.setText("You Scored higher than about 35% of Nepali Adult");
+            surveyTv.setText("Scored higher than about 35% of Nepali Adult");
         } else if (3.15 < valuedouble && valuedouble <= 4.0) {
-            surveyTv.setText("You Scored higher than about 50% of Nepali Adult");
+            surveyTv.setText("Scored higher than about 50% of Nepali Adult");
         } else if (4.0 < valuedouble && valuedouble <= 5.0) {
-            surveyTv.setText("You Scored higher than about 65% of Nepali Adult");
+            surveyTv.setText("Scored higher than about 75% of Nepali Adult");
         }
     }
 

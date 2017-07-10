@@ -20,7 +20,7 @@ public class splash extends AppCompatActivity {
     public static final int STARTUP_DELAY = 300;
     public static final int ANIM_ITEM_DURATION = 1000;
     public static final int ITEM_DELAY = 300;
-    private static int SPLASH_TIME_OUT = 3500;
+    private static int SPLASH_TIME_OUT = 3000;
     private boolean animationStarted = false;
 
     @Override
@@ -59,7 +59,7 @@ public class splash extends AppCompatActivity {
         ViewGroup container = (ViewGroup) findViewById(R.id.container);
 
         ViewCompat.animate(logoImageView)
-                .translationY(-200)
+                .translationY(-250)
                 .setStartDelay(STARTUP_DELAY)
                 .setDuration(ANIM_ITEM_DURATION).setInterpolator(
                 new DecelerateInterpolator(1.2f)).start();

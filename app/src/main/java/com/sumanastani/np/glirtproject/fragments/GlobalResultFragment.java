@@ -20,6 +20,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -60,22 +62,43 @@ public class GlobalResultFragment extends Fragment {
             gritupdateresult = (TextView) itemView.findViewById(R.id.globeupdateScire);
 
             //dynamically change back ground color if textview from own custom cplor
-            String[] mColors = {
+
+            Random r = new Random();
+            int red=r.nextInt(255 - 0 + 1)+0;
+            int green=r.nextInt(255 - 0 + 1)+0;
+            int blue=r.nextInt(255 - 0 + 1)+0;
+
+            GradientDrawable draw = new GradientDrawable();
+            draw.setShape(GradientDrawable.OVAL);
+            draw.setColor(Color.rgb(red,green,blue));
+            draw.setSize(120, 120);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                gritscore.setBackground(draw);
+            }
+
+            /*List<String> colors;
+
+            colors=new ArrayList<String>();
+            colors.add( "4a148c" + "6a1b9a "+ "7b1fa2"+ "880e4f"+ "ad1457"+ "c2185b"+ "d81b60"+ "b71c1c"+ "d32f2f"+
+                    "1a237e"+ "283593"+ "303f9f"+ "303f9f"+ "1565c0"+ "1976d2"+ "37474f"+ "263238"+ "546e7a"+ "e65100"+ "ef6c00"+ "ffa000"+
+                    "00c853"+ "00e676"+ "69f0ae"+ "b9f6ca"+ "01579b"+ "0277bd"+ "0288d1"+ "039be5"+ "b71c1c"+ "c62828");
+
+        *//*    String[] mColors = {
                     "4a148c", "6a1b9a ", "7b1fa2", "880e4f", "ad1457", "c2185b", "d81b60", "b71c1c", "d32f2f",
                     "1a237e", "283593", "303f9f", "303f9f", "1565c0", "1976d2", "37474f", "263238", "546e7a", "e65100", "ef6c00", "ffa000",
                     "00c853", "00e676", "69f0ae", "b9f6ca", "01579b", "0277bd", "0288d1", "039be5", "b71c1c", "c62828"};
-
+*//*
             Random r = new Random();
-            int i1 = r.nextInt(32);
+            int i1 = r.nextInt(30-0)+0;
 
             //genrating shape with colors
             GradientDrawable draw = new GradientDrawable();
             draw.setShape(GradientDrawable.OVAL);
             draw.setSize(100, 100);
-            draw.setColor(Color.parseColor("#" + mColors[i1]));
+            draw.setColor(Color.parseColor("#" + colors.get(i1)));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 gritscore.setBackground(draw);
-            }
+            }*/
         }
     }
 
@@ -132,11 +155,12 @@ public class GlobalResultFragment extends Fragment {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
-                int roomCount = mfirebaseAdapter.getItemCount();
+               /* int roomCount = mfirebaseAdapter.getItemCount();
                 int lastVisiblePosition = mlinearLayoutManager.findLastCompletelyVisibleItemPosition();
                 if (lastVisiblePosition == -1 || (positionStart >= (roomCount - 1) && lastVisiblePosition == (positionStart - 1))) {
                     mglobalrecycleResult.scrollToPosition(positionStart);
-                }
+                }*/
+               mglobalrecycleResult.scrollToPosition(positionStart);
             }
         });
         mglobalrecycleResult.setLayoutManager(mlinearLayoutManager);
